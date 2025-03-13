@@ -1,26 +1,23 @@
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        int[] array = {7,8,9,10,11};
-        int[] filteredArray = filterEvenIndexOddValue(array);
-        System.out.println(Arrays.toString(filteredArray));
+        int[] array = {3,3,3,2,2};
+        System.out.println(findDominant(array));
+
     }
-    public static int[] filterEvenIndexOddValue(int[] array) {
-        int count = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (i % 2 == 0 && array[i] % 2 != 0) {
+
+    public static int findDominant(int[] array) {
+        int z = array.length;
+            for (int i = 0; i < z; i++) {
+                int count = 0;
+
+            for (int j = 0; j < z; j++) {
+                if (array[i] == array[j]) {
                 count++;
             }
         }
-        int[] result = new int[count];
-        int index = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (i % 2 == 0 && array[i] % 2 != 0) {
-                result[index++] = array[i];
-            }
+            if (count > z/2) {
+            return array[i];
         }
-        return result;
     }
-
-}
+        return -1;
+    }}
